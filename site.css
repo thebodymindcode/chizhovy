@@ -86,6 +86,7 @@ section{padding:76px 0}
 .card a{font-weight:700;font-size:.9rem;text-decoration:none}
 .white{background:#fff}
 .nails{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.nails2{grid-template-columns:1fr 1fr}
 .nail{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px}
 .nail b{display:block;font-family:'Playfair Display',Georgia,serif;font-size:1.9rem;font-weight:600;color:var(--wine);font-variant-numeric:tabular-nums}
 .nail span{font-size:.8rem;color:var(--ink-soft);line-height:1.5}
@@ -97,6 +98,17 @@ section{padding:76px 0}
 .dark .card{background:var(--night2);border-color:rgba(208,138,95,.25)}
 .dark .card h3{color:#fff}
 .dark .card p{color:rgba(242,237,228,.65)}
+
+
+/* Два этажа */
+.floors{margin:26px 0}
+.floor{border:1px solid rgba(110,59,75,.25);border-radius:10px;padding:20px 24px;background:#fff}
+.floor b{display:block;font-family:'Playfair Display',Georgia,serif;font-size:1.12rem;margin-bottom:4px}
+.floor span{font-size:.9rem;color:var(--ink-soft);line-height:1.6}
+.floor.deep{background:var(--linen);border-color:rgba(110,59,75,.4)}
+.floor.deep b{color:var(--wine)}
+.fl-link{display:flex;justify-content:flex-end;align-items:center;gap:8px;padding:7px 16px;color:var(--wine);font-size:.78rem;font-weight:700;letter-spacing:.06em}
+.fl-link svg{width:13px;height:22px}
 
 /* Диаграмма + легенда */
 .diagrow{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
@@ -158,7 +170,8 @@ footer .fine{margin-top:44px;padding-top:20px;border-top:1px solid rgba(242,237,
   footer .cols{grid-template-columns:1fr 1fr}
 }
 @media (max-width:480px){
-  .nails{grid-template-columns:1fr}
+  .nails,.nails2{grid-template-columns:1fr}
+  footer .cols{grid-template-columns:1fr}
   .btn{padding:14px 20px;font-size:.92rem}
   .hero .acts .btn{width:100%;text-align:center}
 }
