@@ -161,6 +161,17 @@ footer a{color:rgba(242,237,228,.8);text-decoration:none;display:block;padding:4
 footer a:hover{color:#fff}
 footer .fine{margin-top:44px;padding-top:20px;border-top:1px solid rgba(242,237,228,.15);font-size:.78rem;color:rgba(242,237,228,.5);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
+/* Анимации появления и ховеры */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.rv.on{opacity:1;transform:none}
+.card,.nail{transition:transform .35s ease,box-shadow .35s ease}
+.card:hover,.nail:hover{transform:translateY(-4px);box-shadow:0 16px 34px -20px rgba(50,45,43,.4)}
+.btn{transition:transform .25s ease,background .25s ease}
+.btn:hover{transform:translateY(-2px)}
+.sphere .ring{transition:transform .4s ease,border-color .4s ease}
+.sphere:hover .ring{transform:scale(1.06);border-color:var(--wine)}
+@media (prefers-reduced-motion: reduce){.rv{opacity:1;transform:none;transition:none}}
+
 @media (max-width:860px){
   section{padding:52px 0}
   .grid2,.grid3,.split,.diagrow{grid-template-columns:1fr}

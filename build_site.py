@@ -60,7 +60,7 @@ def loop_diagram(dark=False):
     def node(x, y, num, label, cap, anchor="middle"):
         return f'''
 <g>
-<circle cx="{x}" cy="{y}" r="34" fill="{node_bg}" stroke="{node_line}" stroke-width="1.5"/>
+<circle cx="{x}" cy="{y}" r="34" fill="{node_bg}" stroke="{node_line}" stroke-width="1.5"><animate attributeName="r" values="34;36;34" dur="4s" begin="{num}.8s" repeatCount="indefinite"/></circle>
 <text x="{x}" y="{y+9}" text-anchor="middle" font-family="Playfair Display,Georgia,serif" font-size="26" fill="{ring}">{num}</text>
 </g>
 <text x="{x}" y="{y-48}" text-anchor="{anchor}" font-family="Manrope,sans-serif" font-weight="700" font-size="16" fill="{txt}">{label}</text>
@@ -278,6 +278,17 @@ footer a{color:rgba(242,237,228,.8);text-decoration:none;display:block;padding:4
 footer a:hover{color:#fff}
 footer .fine{margin-top:44px;padding-top:20px;border-top:1px solid rgba(242,237,228,.15);font-size:.78rem;color:rgba(242,237,228,.5);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
+/* Анимации появления и ховеры */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.rv.on{opacity:1;transform:none}
+.card,.nail{transition:transform .35s ease,box-shadow .35s ease}
+.card:hover,.nail:hover{transform:translateY(-4px);box-shadow:0 16px 34px -20px rgba(50,45,43,.4)}
+.btn{transition:transform .25s ease,background .25s ease}
+.btn:hover{transform:translateY(-2px)}
+.sphere .ring{transition:transform .4s ease,border-color .4s ease}
+.sphere:hover .ring{transform:scale(1.06);border-color:var(--wine)}
+@media (prefers-reduced-motion: reduce){.rv{opacity:1;transform:none;transition:none}}
+
 @media (max-width:860px){
   section{padding:52px 0}
   .grid2,.grid3,.split,.diagrow{grid-template-columns:1fr}
@@ -359,8 +370,24 @@ def page(title, desc, active, body):
 {nav(active)}
 {body}
 {FOOTER}
+<script>
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {{
+  const els = document.querySelectorAll('.card,.pull,.nail,.sphere,figure,.poster,.floor,.role,.split > *,.diagrow > *,section h2,.stepline .st');
+  els.forEach(e => e.classList.add('rv'));
+  const io = new IntersectionObserver(es => es.forEach(x => {{
+    if (x.isIntersecting) {{ x.target.classList.add('on'); io.unobserve(x.target); }}
+  }}), {{threshold:.12}});
+  els.forEach(e => io.observe(e));
+}}
+</script>
 </body>
 </html>"""
+
+floors = """<div class="floors">
+<div class="floor"><b>Этаж слов</b><span>книги, разговоры, решения «с&nbsp;понедельника». Сюда стучались прошлые попытки</span></div>
+<div class="fl-link"><span>работа идёт сюда</span><svg viewBox="0 0 14 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 1v17M2 14l5 7 5-7"/></svg></div>
+<div class="floor deep"><b>Этаж эмоции и&nbsp;тела</b><span>здесь хранится запись. И&nbsp;здесь&nbsp;же её&nbsp;переписывают: в&nbsp;живой сцене</span></div>
+</div>"""
 
 P = {}
 
@@ -497,23 +524,30 @@ P["index.html"] = ("Настоящие отношения · школа тран
 
 # ================= МЕТОД =================
 P["metod/index.html"] = ("Метод школы · Настоящие отношения",
-"Событийный круг, состояние и психодрама: как устроена перезапись сценариев.", "metod", f"""
+"Событийный круг, состояние и психодрама: подробный разбор, как устроена перезапись сценариев.", "metod", f"""
 <div class="hero short"><div class="bg" style="background-image:url('/chizhovy/images/site-metod.png')"></div><div class="veil"></div>
-<div class="in"><p class="eyebrow">Метод</p><h1>Жизнь слушается состояния</h1>
-<p class="lead">Мы&nbsp;не&nbsp;учим «правильно общаться». Мы&nbsp;находим запись, которая пишет твои реакции, и&nbsp;помогаем её&nbsp;переписать.</p></div></div>
+<div class="in"><p class="eyebrow">Метод школы</p><h1>Жизнь слушается состояния</h1>
+<p class="lead">Мы&nbsp;не&nbsp;учим «правильно общаться» и&nbsp;не&nbsp;выдаём мотивацию на&nbsp;неделю. Мы&nbsp;находим запись, которая пишет твои реакции, и&nbsp;помогаем переписать её&nbsp;там, где она хранится. Ниже метод разобран по&nbsp;винтикам.</p>
+<div class="acts"><a class="btn btn-copper" href="/chizhovy/sessiya/">Записаться на&nbsp;сессию</a><a class="btn btn-ghost" href="/chizhovy/vedushchie/">Кто ведёт</a></div>
+</div></div>
 
 <section><div class="narrow">
 <p class="eyebrow">Главная идея</p>
 <h2>Муравей и&nbsp;слон</h2>
-<p>Разум мал и&nbsp;суетлив, как муравей. Состояние огромно, как слон. Пока слон лежит или идёт в&nbsp;другую сторону, муравей может тащить план куда угодно: масса не&nbsp;та. Поэтому решения «с&nbsp;понедельника» держатся до&nbsp;первого настоящего стресса.</p>
+<p>Разум мал и&nbsp;суетлив, как муравей. Состояние огромно, как слон. Пока слон лежит или идёт в&nbsp;другую сторону, муравей может тащить план куда угодно: масса не&nbsp;та. Поэтому решения «с&nbsp;понедельника» держатся до&nbsp;первого настоящего стресса, а&nbsp;цели из&nbsp;ежедневника не&nbsp;доходят до&nbsp;жизни.</p>
 <p>Управлять получается наоборот: сначала состояние, потом действия. Меняется состояние, меняются решения. Меняются решения, меняется жизнь. Ученики после тренинга говорят об&nbsp;этом коротко: мир зеркалит состояние.</p>
+<div class="nails" style="grid-template-columns:1fr 1fr 1fr;margin-top:26px">
+<div class="nail"><b>95%</b><span>дня человек живёт на&nbsp;автопилоте привычных реакций</span></div>
+<div class="nail"><b>12&nbsp;мс</b><span>фора эмоционального мозга перед думающим (ЛеДу)</span></div>
+<div class="nail"><b>90&nbsp;сек</b><span>живёт химия эмоции, если её&nbsp;не&nbsp;кормить (Болте Тейлор)</span></div>
+</div>
 </div></section>
 
 <section class="dark"><div class="wrap">
 <div class="diagrow">
 <div>{loop_diagram(dark=True)}</div>
 <div>
-<p class="eyebrow">Механика</p>
+<p class="eyebrow">Механика повтора</p>
 <h2>Событийный круг</h2>
 <div class="legend" style="margin-top:8px">
 <div class="li"><i>1</i><div><b>Событие</b><span>Что-то происходит: слово, взгляд, сумма на&nbsp;счёте. Само по&nbsp;себе оно нейтрально.</span></div></div>
@@ -521,27 +555,71 @@ P["metod/index.html"] = ("Метод школы · Настоящие отнош
 <div class="li"><i>3</i><div><b>Старое решение</b><span>«Злиться опасно», «просить стыдно», «я&nbsp;сам». Принято в&nbsp;детстве, работает во&nbsp;взрослой жизни.</span></div></div>
 <div class="li"><i>4</i><div><b>Сценарий</b><span>Поведение идёт по&nbsp;записи, финал тот&nbsp;же, что в&nbsp;прошлый раз. Круг замыкается и&nbsp;укрепляется.</span></div></div>
 </div>
+<p style="margin-top:18px">Разорвать круг усилием не&nbsp;выходит: он&nbsp;быстрее сознания. Его размыкают в&nbsp;точке 3, там, где живёт старое решение.</p>
 </div>
 </div>
 </div></section>
 
 <section><div class="narrow">
-<p class="eyebrow">Инструмент</p>
+<p class="eyebrow">Почему разговоры не&nbsp;берут</p>
+<h2>Запись хранится ниже слов</h2>
+<p>Книги, курсы и&nbsp;беседы стучатся в&nbsp;думающий этаж. Запись лежит этажом ниже: в&nbsp;эмоции и&nbsp;теле. Договариваться с&nbsp;ней словами&nbsp;то&nbsp;же самое, что уговаривать плёнку звучать иначе.</p>
+{floors}
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+<p class="eyebrow">Инструмент №1</p>
 <h2>Психодрама: перезапись&nbsp;в&nbsp;живой&nbsp;сцене</h2>
-<p>Разговорами запись не&nbsp;берётся: она хранится в&nbsp;эмоции и&nbsp;теле, ниже этажа слов. Поэтому ядро работы у&nbsp;нас процессное. Психиатр Якоб Морено сто лет назад придумал психодраму: человек возвращается в&nbsp;ключевую сцену своей жизни, проживает её&nbsp;заново, смотрит на&nbsp;неё&nbsp;глазами других участников и&nbsp;прямо внутри сцены принимает другое решение.</p>
-<svg viewBox="0 0 900 300" style="width:100%;height:auto;margin:26px 0 8px" role="img" aria-label="Два этажа психики: этаж слов и этаж эмоции с телом">
-<rect x="60" y="30" width="780" height="105" rx="10" fill="#FFFFFF" stroke="rgba(110,59,75,.25)"/>
-<rect x="60" y="160" width="780" height="105" rx="10" fill="#EFE9DF" stroke="rgba(110,59,75,.4)" stroke-width="1.5"/>
-<text x="92" y="72" font-family="Playfair Display,Georgia,serif" font-size="21" fill="#322D2B">Этаж слов</text>
-<text x="92" y="102" font-family="Manrope,sans-serif" font-size="14" fill="#6B615C">книги, разговоры, решения «с понедельника». Сюда стучались прошлые попытки</text>
-<text x="92" y="202" font-family="Playfair Display,Georgia,serif" font-size="21" fill="#6E3B4B">Этаж эмоции и тела</text>
-<text x="92" y="232" font-family="Manrope,sans-serif" font-size="14" fill="#6B615C">здесь хранится запись. И здесь же её переписывают: в живой сцене</text>
-<path d="M775 105 v66" stroke="#6E3B4B" stroke-width="3"/>
-<path d="M775 185 l-9 -13 h18 z" fill="#6E3B4B"/>
-<text x="770" y="95" text-anchor="end" font-family="Manrope,sans-serif" font-size="12.5" fill="#6E3B4B">работа идёт сюда</text>
-</svg>
-<p>Морено называл это спонтанностью: способностью дать новый ответ на&nbsp;старую ситуацию. По-нашему: момент, когда пульт возвращается к&nbsp;хозяину.</p>
-<div class="pull"><div class="q">«Труднее всего было принять точку&nbsp;А. Признать, где я&nbsp;на&nbsp;самом деле. Дальше всё началось.»</div><div class="who">Участник тренинга</div></div>
+<p class="sub">Метод психиатра Якоба Морено, сто лет практики по&nbsp;всему миру. Человек не&nbsp;рассказывает о&nbsp;ситуации, а&nbsp;возвращается в&nbsp;неё&nbsp;и&nbsp;меняет решение прямо внутри сцены.</p>
+<div class="split" style="margin-top:30px">
+<div class="ph"><img src="/chizhovy/images/metod-scena.png" alt="Сцена психодрамы: участник в центре, группа вокруг" loading="lazy"></div>
+<div>
+<p>Со&nbsp;стороны это похоже на&nbsp;живой театр без сценария. Изнутри это самая точная работа, которую мы&nbsp;знаем: сцена достаёт запись целиком, с&nbsp;эмоцией, телом и&nbsp;тем самым решением.</p>
+<p>Морено называл результат спонтанностью: способностью дать новый ответ на&nbsp;старую ситуацию. По-нашему: момент, когда пульт возвращается к&nbsp;хозяину.</p>
+</div>
+</div>
+<div class="grid3" style="margin-top:30px;grid-template-columns:repeat(5,1fr)" id="psy-steps">
+<div class="card"><span class="bignum">1</span><h3>Запрос</h3><p>Называешь сцену, которая держит: ссора, разговор, который откладываешь годами, момент из&nbsp;детства.</p></div>
+<div class="card"><span class="bignum">2</span><h3>Сцена</h3><p>Участники группы становятся героями твоей истории. Пространство зала превращается в&nbsp;ту&nbsp;кухню, тот кабинет, тот двор.</p></div>
+<div class="card"><span class="bignum">3</span><h3>Проживание</h3><p>Говоришь из&nbsp;себя настоящего то, что тогда осталось несказанным. Тело включается раньше слов, и&nbsp;это правильно.</p></div>
+<div class="card"><span class="bignum">4</span><h3>Обмен ролями</h3><p>Встаёшь на&nbsp;место другого: отца, партнёра, себя-ребёнка. Сцена, которую ты&nbsp;носил годами, впервые видна целиком.</p></div>
+<div class="card"><span class="bignum">5</span><h3>Новое решение</h3><p>Прямо в&nbsp;сцене принимаешь другое решение. Теперь оно записано так&nbsp;же глубоко, как старое: телом и&nbsp;эмоцией.</p></div>
+</div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+<div class="split">
+<div>
+<p class="eyebrow">Пустой стул</p>
+<h2>Разговор, который ты&nbsp;откладывал годами</h2>
+<p>Иногда сцена строится вокруг пустого стула. На&nbsp;нём сидит тот, с&nbsp;кем разговор так и&nbsp;не&nbsp;случился: отец, бывший, ты&nbsp;сам из&nbsp;прошлого. Разговор происходит сейчас, и&nbsp;тело отпускает то, что держало.</p>
+<p>После таких процессов участники говорят: «снял рюкзак», «стало легче дышать». Это не&nbsp;образы, это буквальные ощущения: напряжение, которое тело держало годами, находит выход.</p>
+</div>
+<div class="ph"><img src="/chizhovy/images/metod-stul.png" alt="Пустой стул в луче тёплого света" loading="lazy"></div>
+</div>
+</div></section>
+
+<section class="dark"><div class="wrap">
+<p class="eyebrow">Вокруг сцены</p>
+<h2>Что ещё работает на&nbsp;перезапись</h2>
+<div class="grid2" style="margin-top:26px">
+<div class="card">{icon('flame','var(--copper)')}<h3>Работа с&nbsp;телом</h3><p>Запись живёт в&nbsp;мышцах и&nbsp;дыхании. Телесные практики достают её&nbsp;там, куда слова не&nbsp;доходят, и&nbsp;учат выходить из&nbsp;захвата за&nbsp;те&nbsp;самые 90&nbsp;секунд.</p></div>
+<div class="card">{icon('gear','var(--copper)')}<h3>Разбор вины и&nbsp;ответственности</h3><p>Вина сливает энергию и&nbsp;зовёт наказание. Ответственность возвращает силу. Разницу учимся чувствовать телом, а&nbsp;не&nbsp;запоминать словами.</p></div>
+<div class="card">{icon('people','var(--copper)')}<h3>Группа как зеркало</h3><p>10-20 человек, у&nbsp;которых те&nbsp;же боли под другими фамилиями. В&nbsp;чужой сцене узнаёшь свою запись быстрее, чем в&nbsp;своей.</p></div>
+<div class="card">{icon('sunrise','var(--copper)')}<h3>Ежедневная практика</h3><p>После модулей: утренний фокус дня и&nbsp;вечерняя ревизия с&nbsp;благодарностями. Девяносто дней Марафона делают новый ответ привычкой.</p></div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<p class="eyebrow">Наука за&nbsp;методом</p>
+<h2>Кто это проверил до&nbsp;нас</h2>
+<div class="grid2" style="margin-top:26px">
+<div class="card white"><h3>Джозеф ЛеДу · нейробиолог</h3><p>Показал «короткий путь» страха: миндалина получает сигнал за&nbsp;12&nbsp;миллисекунд, раньше думающей коры. Вот почему реакция обгоняет намерение.</p></div>
+<div class="card white"><h3>Дэниел Гоулман · психолог</h3><p>Описал «захват»: в&nbsp;момент вспышки разумная часть мозга приглушается. «Взять себя в&nbsp;руки» в&nbsp;этот момент физически нечем.</p></div>
+<div class="card white"><h3>Джилл Болте Тейлор · нейроанатом</h3><p>Правило 90&nbsp;секунд: химия эмоции сама уходит из&nbsp;крови за&nbsp;полторы минуты, если не&nbsp;подкармливать её&nbsp;мыслями по&nbsp;кругу.</p></div>
+<div class="card white"><h3>Якоб Морено · психиатр</h3><p>Создал психодраму и&nbsp;доказал: новый ответ, прожитый в&nbsp;сцене телом и&nbsp;эмоцией, записывается так&nbsp;же глубоко, как детское решение.</p></div>
+</div>
+<div class="pull" style="margin-top:30px"><div class="q">«Труднее всего было принять точку&nbsp;А. Признать, где я&nbsp;на&nbsp;самом деле. Дальше всё началось.»</div><div class="who">Участник тренинга</div></div>
 </div></section>
 
 <section style="padding-top:0"><div class="wrap">
@@ -549,10 +627,16 @@ P["metod/index.html"] = ("Метод школы · Настоящие отнош
 <h2>Почему изменения остаются</h2>
 <div class="grid3" style="margin-top:26px">
 <div class="card">{icon('layers')}<h3>Глубина</h3><p>Очные модули по&nbsp;несколько дней: время дойти до&nbsp;причины, а&nbsp;не&nbsp;снять симптом.</p></div>
-<div class="card">{icon('people','var(--sage-deep)')}<h3>Группа</h3><p>10-20 человек. В&nbsp;чужих историях узнаёшь свою, в&nbsp;своих перестаёшь быть один.</p></div>
+<div class="card">{icon('people','var(--sage-deep)')}<h3>Группа</h3><p>Малая группа, каждого знаем по&nbsp;имени. В&nbsp;чужих историях узнаёшь свою, в&nbsp;своих перестаёшь быть один.</p></div>
 <div class="card">{icon('calendar','var(--sand)')}<h3>Практика</h3><p>Три месяца сопровождения: новые реакции закрепляются действиями в&nbsp;обычной жизни, пока не&nbsp;станут своими.</p></div>
 </div>
-<p style="margin-top:30px"><a class="btn btn-wine" href="/chizhovy/programma/">Смотреть программу</a></p>
+</div></section>
+
+<section style="padding-top:0"><div class="narrow">
+<h2>Кому метод не&nbsp;подойдёт</h2>
+<p>Честно: тем, кто ищет волшебную таблетку за&nbsp;вечер. Тем, кто пока не&nbsp;готов работать в&nbsp;группе. И&nbsp;тем, кому сейчас нужна медицинская помощь, а&nbsp;не&nbsp;тренинг: это мы&nbsp;говорим прямо на&nbsp;сессии и&nbsp;советуем, куда идти.</p>
+<p>Для всех остальных вход один: час разговора с&nbsp;Алексеем. Там решаем, твой это метод или нет.</p>
+<p style="margin-top:26px"><a class="btn btn-wine" href="/chizhovy/sessiya/">Записаться на&nbsp;сессию</a> <a class="btn btn-ghost" href="/chizhovy/programma/" style="margin-left:8px">Смотреть программу</a></p>
 </div></section>
 """)
 
