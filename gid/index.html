@@ -50,10 +50,19 @@ section{padding:72px 0}
 .hero .lead{font-size:1.2rem;line-height:1.65;color:rgba(242,237,228,.85);max-width:640px;margin-top:24px}
 .hero .anchor{margin-top:34px;font-size:.9rem;color:var(--copper);letter-spacing:.04em}
 
-/* Полнокровные фото */
-.photo{margin:0}
-.photo img{width:100%;height:auto}
-.photo figcaption{font-size:.78rem;color:var(--ink-soft);padding:10px 24px 0;text-align:center}
+/* Журнальные кадры */
+.figure{max-width:880px;margin:0 auto;padding:0 24px}
+.figure .frame{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 24px 44px -32px rgba(50,45,43,.45)}
+.figure img{width:100%;display:block}
+.figure .cap{display:flex;gap:12px;align-items:baseline;padding:12px 6px 0;font-size:.78rem;color:var(--ink-soft)}
+.figure .cap b{font-family:'Playfair Display',Georgia,serif;color:var(--wine);letter-spacing:.08em;white-space:nowrap}
+
+/* Буквица */
+.dropcap::first-letter{font-family:'Playfair Display',Georgia,serif;font-size:3.3em;line-height:.86;float:left;padding:5px 12px 0 0;color:var(--wine)}
+
+/* Номера сцен */
+.scene{position:relative}
+.scene .n{position:absolute;top:8px;right:16px;font-family:'Playfair Display',Georgia,serif;font-size:2.4rem;line-height:1;font-weight:600;color:transparent;-webkit-text-stroke:1.2px rgba(201,168,124,.55);pointer-events:none}
 
 /* Сцены боли */
 .scene{background:var(--linen);border:1px solid var(--line);border-radius:8px;padding:24px 26px;margin:0 0 14px}
@@ -144,6 +153,7 @@ footer .wrap-wide{display:flex;justify-content:space-between;gap:20px;flex-wrap:
 @media (max-width:760px){
   section{padding:52px 0}
   .loop{grid-template-columns:1fr 1fr}
+  .btn{display:block;text-align:center}
   .roles,.contrast,.nails{grid-template-columns:1fr}
   .check{padding:24px 18px}
   .offer{padding:28px 22px}
@@ -178,23 +188,23 @@ footer .wrap-wide{display:flex;justify-content:space-between;gap:20px;flex-wrap:
   <div class="wrap">
     <p class="eyebrow">Сцена первая</p>
     <h2>Вспомни последнюю ссору, которая пошла по&nbsp;знакомому кругу</h2>
-    <p>Не&nbsp;абстрактно. Конкретную. Кухня или машина, вечер, усталость. Одна фраза цепляет другую, и&nbsp;вот вы&nbsp;уже там&nbsp;же, где были в&nbsp;прошлый раз. И&nbsp;в&nbsp;позапрошлый.</p>
+    <p class="dropcap">Не&nbsp;абстрактно. Конкретную. Кухня или машина, вечер, усталость. Одна фраза цепляет другую, и&nbsp;вот вы&nbsp;уже там&nbsp;же, где были в&nbsp;прошлый раз. И&nbsp;в&nbsp;позапрошлый.</p>
     <p>Самое странное в&nbsp;этой сцене даже не&nbsp;сам повтор. Причём почувствовал ты&nbsp;его заранее: внутри что-то успело шепнуть «сейчас начнётся». И&nbsp;началось. <strong>Ты смотрел кино, которое уже видел, и&nbsp;не&nbsp;смог выключить.</strong></p>
     <p>Если бы это касалось только ссор. Присмотрись, тот&nbsp;же повтор идёт по&nbsp;всем главным линиям:</p>
 
-    <div class="scene">
+    <div class="scene"><span class="n">01</span>
       <div class="who">Деньги</div>
       <p>Был лучший месяц за&nbsp;год. Сразу за&nbsp;ним провальный, будто кто-то выровнял счёт. Доход годами крутится вокруг одной цифры, и&nbsp;ты&nbsp;её&nbsp;знаешь с&nbsp;точностью до&nbsp;сотни тысяч.</p>
     </div>
-    <div class="scene">
+    <div class="scene"><span class="n">02</span>
       <div class="who">Близость</div>
       <p>Люди меняются, город меняется, а&nbsp;финал знакомый: сначала «наконец-то другой человек», потом те&nbsp;же обиды, те&nbsp;же паузы в&nbsp;переписке, тот&nbsp;же холод. Как будто партнёров подбирает кто-то один и&nbsp;тот&nbsp;же.</p>
     </div>
-    <div class="scene">
+    <div class="scene"><span class="n">03</span>
       <div class="who">Ты сам</div>
       <p>Вечер. Дела закрыты, все получили своё. Сидишь в&nbsp;машине на&nbsp;паркинге, двигатель заглушен, и&nbsp;выходить не&nbsp;хочется. Наверху ждут. А&nbsp;у&nbsp;тебя внутри пусто, и&nbsp;об&nbsp;этом некому сказать.</p>
     </div>
-    <div class="scene">
+    <div class="scene"><span class="n">04</span>
       <div class="who">Утро</div>
       <p>Будильник. Мысли включились раньше глаз. Кофе, дорога, встречи, вернулся, хотел заняться своим, не&nbsp;занялся. Телефон, злость на&nbsp;себя, сон. Повтор. Неделя. Месяц. Год.</p>
     </div>
@@ -203,8 +213,9 @@ footer .wrap-wide{display:flex;justify-content:space-between;gap:20px;flex-wrap:
   </div>
 </section>
 
-<figure class="photo">
-  <img src="../images/gid-ustalost.png" alt="Мужчина сидит один в машине на ночном паркинге" loading="lazy">
+<figure class="figure">
+  <div class="frame"><img src="../images/gid-ustalost.png" alt="Мужчина сидит один в машине на ночном паркинге" loading="lazy"></div>
+  <div class="cap"><b>КАДР 01</b><span>Паркинг, 21:47. Дела закрыты, все получили своё. Выходить не&nbsp;хочется.</span></div>
 </figure>
 
 <section>
@@ -244,12 +255,21 @@ footer .wrap-wide{display:flex;justify-content:space-between;gap:20px;flex-wrap:
       <div class="nail"><b>90&nbsp;сек</b><span>живёт химия эмоции, если её&nbsp;не&nbsp;кормить мыслями (Болте Тейлор)</span></div>
       <div class="nail"><b>1&nbsp;решение</b><span>детское, способно вести взрослую жизнь десятилетиями</span></div>
     </div>
+
+<svg viewBox="0 0 900 260" style="width:100%;height:auto;margin-top:30px" role="img" aria-label="Волна эмоции: пик и спад за 90 секунд, пунктиром новая волна при накрутке">
+<line x1="40" y1="210" x2="860" y2="210" stroke="rgba(242,237,228,.25)" stroke-width="1"/>
+<path d="M40 210 C 180 210, 240 60, 330 60 C 420 60, 470 210, 600 210" fill="none" stroke="#D08A5F" stroke-width="3"/>
+<path d="M560 210 C 620 140, 700 140, 750 210" fill="none" stroke="rgba(208,138,95,.55)" stroke-width="2" stroke-dasharray="4 6"/>
+<text x="330" y="42" text-anchor="middle" fill="#F2EDE4" font-family="Manrope,sans-serif" font-weight="700" font-size="15">пик волны</text>
+<text x="320" y="240" text-anchor="middle" fill="rgba(242,237,228,.6)" font-family="Manrope,sans-serif" font-size="13">около 90 секунд, если не кормить её мыслями</text>
+<text x="700" y="120" text-anchor="middle" fill="rgba(208,138,95,.85)" font-family="Manrope,sans-serif" font-size="13">новая волна, если крутить по кругу</text>
+</svg>
   </div>
 </section>
 
-<figure class="photo">
-  <img src="../images/gid-zapis.png" alt="Старый катушечный магнитофон с тёплой подсветкой" loading="lazy">
-  <figcaption>Запись крутится, пока её&nbsp;не&nbsp;увидят. Потом у&nbsp;неё&nbsp;заканчивается власть.</figcaption>
+<figure class="figure">
+  <div class="frame"><img src="../images/gid-zapis.png" alt="Старый катушечный магнитофон с тёплой подсветкой" loading="lazy"></div>
+  <div class="cap"><b>КАДР 02</b><span>Запись крутится, пока её&nbsp;не&nbsp;увидят. Потом у&nbsp;неё&nbsp;заканчивается власть.</span></div>
 </figure>
 
 <section>
@@ -281,8 +301,9 @@ footer .wrap-wide{display:flex;justify-content:space-between;gap:20px;flex-wrap:
   </div>
 </section>
 
-<figure class="photo">
-  <img src="../images/gid-tochka-a.png" alt="Женщина у окна на рассвете смотрит на город" loading="lazy">
+<figure class="figure">
+  <div class="frame"><img src="../images/gid-tochka-a.png" alt="Женщина у окна на рассвете смотрит на город" loading="lazy"></div>
+  <div class="cap"><b>КАДР 03</b><span>Точка&nbsp;А. Утро, в&nbsp;которое врать себе надоело.</span></div>
 </figure>
 
 <section>
@@ -290,6 +311,18 @@ footer .wrap-wide{display:flex;justify-content:space-between;gap:20px;flex-wrap:
     <p class="eyebrow">Почему слова не&nbsp;достают</p>
     <h2>Запись нельзя переубедить. Её&nbsp;можно только переписать</h2>
     <p>Теперь понятно, почему книги и&nbsp;разговоры не&nbsp;сработали: они стучались в&nbsp;думающий этаж. Запись хранится этажом ниже, в&nbsp;эмоции и&nbsp;теле. Договариваться с&nbsp;ней словами&nbsp;то&nbsp;же самое, что уговаривать плёнку звучать иначе. Плёнке всё равно, она просто играет, что записано.</p>
+
+<svg viewBox="0 0 900 300" style="width:100%;height:auto;margin:26px 0 8px" role="img" aria-label="Два этажа психики: этаж слов и этаж эмоции с телом">
+<rect x="60" y="30" width="780" height="105" rx="10" fill="#FFFFFF" stroke="rgba(110,59,75,.25)"/>
+<rect x="60" y="160" width="780" height="105" rx="10" fill="#EFE9DF" stroke="rgba(110,59,75,.4)" stroke-width="1.5"/>
+<text x="92" y="72" font-family="Playfair Display,Georgia,serif" font-size="21" fill="#322D2B">Этаж слов</text>
+<text x="92" y="102" font-family="Manrope,sans-serif" font-size="14" fill="#6B615C">книги, разговоры, решения «с понедельника». Сюда стучались прошлые попытки</text>
+<text x="92" y="202" font-family="Playfair Display,Georgia,serif" font-size="21" fill="#6E3B4B">Этаж эмоции и тела</text>
+<text x="92" y="232" font-family="Manrope,sans-serif" font-size="14" fill="#6B615C">здесь хранится запись. И здесь же её переписывают: в живой сцене</text>
+<path d="M775 105 v66" stroke="#6E3B4B" stroke-width="3"/>
+<path d="M775 185 l-9 -13 h18 z" fill="#6E3B4B"/>
+<text x="770" y="95" text-anchor="end" font-family="Manrope,sans-serif" font-size="12.5" fill="#6E3B4B">работа идёт сюда</text>
+</svg>
     <p>Перезаписывают её&nbsp;там&nbsp;же, где записали: в&nbsp;живой сцене, с&nbsp;живой эмоцией. Для этого сто лет назад психиатр Якоб Морено придумал психодраму: человек не&nbsp;рассказывает о&nbsp;ситуации, а&nbsp;возвращается в&nbsp;неё, проживает заново, видит с&nbsp;позиций других участников и&nbsp;прямо внутри сцены принимает другое решение. Морено называл это спонтанностью: способностью дать новый ответ на&nbsp;старую ситуацию.</p>
     <p>Такой опыт невозможно получить из&nbsp;текста. Его можно только прожить. Текст способен на&nbsp;меньшее, но&nbsp;важное: <strong>показать тебе твою запись.</strong> Что он, надеюсь, уже сделал.</p>
   </div>
@@ -348,8 +381,9 @@ footer .wrap-wide{display:flex;justify-content:space-between;gap:20px;flex-wrap:
   </div>
 </section>
 
-<figure class="photo">
-  <img src="../images/gid-posle.png" alt="Пара смеётся за завтраком у большого окна" loading="lazy">
+<figure class="figure">
+  <div class="frame"><img src="../images/gid-posle.png" alt="Пара смеётся за завтраком у большого окна" loading="lazy"></div>
+  <div class="cap"><b>КАДР 04</b><span>После перезаписи. Тот&nbsp;же дом, те&nbsp;же двое, другая жизнь.</span></div>
 </figure>
 
 <section>
@@ -375,7 +409,7 @@ footer .wrap-wide{display:flex;justify-content:space-between;gap:20px;flex-wrap:
     <p class="eyebrow">Последняя страница</p>
     <h2>Запись не&nbsp;берёт выходных</h2>
     <p>Каждый день, прожитый по&nbsp;ней, делает колею глубже: нейронные дорожки укрепляются от&nbsp;повторения. Поэтому спрашивать «нужно&nbsp;ли с&nbsp;этим что-то делать» уже поздно. Живой вопрос другой: <strong>сколько ещё кругов ты&nbsp;готов оплатить.</strong></p>
-    <p style="margin-top:28px"><a class="btn btn-copper" href="https://t.me/+LVptSH6Mt4hhYmFi">Записаться на&nbsp;ознакомительную сессию</a></p>
+    <p style="margin-top:28px"><a class="btn btn-copper" href="https://t.me/+LVptSH6Mt4hhYmFi">Записаться на&nbsp;сессию</a></p>
     <p class="smallnote">Напиши в&nbsp;наш Telegram слово «сессия». Ответим лично, без ботов и&nbsp;рассылок.</p>
   </div>
 </section>
