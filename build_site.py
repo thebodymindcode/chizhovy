@@ -197,6 +197,8 @@ section{padding:76px 0}
 /* Сетки */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.nails3{grid-template-columns:repeat(3,1fr)}
 .card{background:var(--linen);border:1px solid var(--line);border-radius:8px;padding:26px 24px}
 .card h3{margin-bottom:8px}
 .card p{margin:0;font-size:.93rem;color:var(--ink-soft)}
@@ -292,13 +294,15 @@ footer .fine{margin-top:44px;padding-top:20px;border-top:1px solid rgba(242,237,
 @media (max-width:860px){
   section{padding:52px 0}
   .grid2,.grid3,.split,.diagrow{grid-template-columns:1fr}
+  .grid5{grid-template-columns:1fr 1fr}
+  .nails3{grid-template-columns:1fr 1fr}
   .mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:160px}
   .nails,.spheres{grid-template-columns:1fr 1fr}
   .poster .in{padding:36px 26px}
   footer .cols{grid-template-columns:1fr 1fr}
 }
 @media (max-width:480px){
-  .nails,.nails2{grid-template-columns:1fr}
+  .nails,.nails2,.nails3,.grid5{grid-template-columns:1fr}
   footer .cols{grid-template-columns:1fr}
   .btn{padding:14px 20px;font-size:.92rem}
   .hero .acts .btn{width:100%;text-align:center}
@@ -536,7 +540,7 @@ P["metod/index.html"] = ("Метод школы · Настоящие отнош
 <h2>Муравей и&nbsp;слон</h2>
 <p>Разум мал и&nbsp;суетлив, как муравей. Состояние огромно, как слон. Пока слон лежит или идёт в&nbsp;другую сторону, муравей может тащить план куда угодно: масса не&nbsp;та. Поэтому решения «с&nbsp;понедельника» держатся до&nbsp;первого настоящего стресса, а&nbsp;цели из&nbsp;ежедневника не&nbsp;доходят до&nbsp;жизни.</p>
 <p>Управлять получается наоборот: сначала состояние, потом действия. Меняется состояние, меняются решения. Меняются решения, меняется жизнь. Ученики после тренинга говорят об&nbsp;этом коротко: мир зеркалит состояние.</p>
-<div class="nails" style="grid-template-columns:1fr 1fr 1fr;margin-top:26px">
+<div class="nails nails3" style="margin-top:26px">
 <div class="nail"><b>95%</b><span>дня человек живёт на&nbsp;автопилоте привычных реакций</span></div>
 <div class="nail"><b>12&nbsp;мс</b><span>фора эмоционального мозга перед думающим (ЛеДу)</span></div>
 <div class="nail"><b>90&nbsp;сек</b><span>живёт химия эмоции, если её&nbsp;не&nbsp;кормить (Болте Тейлор)</span></div>
@@ -578,7 +582,7 @@ P["metod/index.html"] = ("Метод школы · Настоящие отнош
 <p>Морено называл результат спонтанностью: способностью дать новый ответ на&nbsp;старую ситуацию. По-нашему: момент, когда пульт возвращается к&nbsp;хозяину.</p>
 </div>
 </div>
-<div class="grid3" style="margin-top:30px;grid-template-columns:repeat(5,1fr)" id="psy-steps">
+<div class="grid5" style="margin-top:30px" id="psy-steps">
 <div class="card"><span class="bignum">1</span><h3>Запрос</h3><p>Называешь сцену, которая держит: ссора, разговор, который откладываешь годами, момент из&nbsp;детства.</p></div>
 <div class="card"><span class="bignum">2</span><h3>Сцена</h3><p>Участники группы становятся героями твоей истории. Пространство зала превращается в&nbsp;ту&nbsp;кухню, тот кабинет, тот двор.</p></div>
 <div class="card"><span class="bignum">3</span><h3>Проживание</h3><p>Говоришь из&nbsp;себя настоящего то, что тогда осталось несказанным. Тело включается раньше слов, и&nbsp;это правильно.</p></div>
