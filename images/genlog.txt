@@ -13,3 +13,7 @@ OK /Users/q8111706yandex.ru/Documents/Чижовы-Настоящие-отнош
 OK /Users/q8111706yandex.ru/Documents/Чижовы-Настоящие-отношения/chizhovy/images/gid-zapis.png | gen4_image | 1360:768
 OK /Users/q8111706yandex.ru/Documents/Чижовы-Настоящие-отношения/chizhovy/images/gid-ustalost.png | gen4_image | 1360:768
 OK /Users/q8111706yandex.ru/Documents/Чижовы-Настоящие-отношения/chizhovy/images/gid-tochka-a.png | gen4_image | 1360:768
+OK /Users/q8111706yandex.ru/Documents/Чижовы-Настоящие-отношения/chizhovy/images/gid-posle.png | gen4_image | 1360:768
+OK /Users/q8111706yandex.ru/Documents/Чижовы-Настоящие-отношения/chizhovy/images/site-metod.png | gen4_image | 1360:768
+OK /Users/q8111706yandex.ru/Documents/Чижовы-Настоящие-отношения/chizhovy/images/site-sessiya.png | gen4_image | 1360:768
+OK /Users/q8111706yandex.ru/Documents/Чижовы-Настоящие-отношения/chizhovy/images/site-para-itog.png | gen4_image | 1360:768
