@@ -506,7 +506,7 @@ P["index.html"] = ("Настоящие отношения · школа тран
 <p>Вместе 17&nbsp;лет. Школу отношений ведёт пара, у&nbsp;которой отношения живые: с&nbsp;бытом, кризисами и&nbsp;выходами из&nbsp;них.</p>
 <p style="margin-top:20px"><a class="btn btn-ghost" href="/chizhovy/vedushchie/">Познакомиться</a></p>
 </div>
-<div class="ph"><img src="/chizhovy/images/real/real-02.jpg" alt="Команда школы за общим столом" loading="lazy"></div>
+<div class="ph"><img src="/chizhovy/images/real/portret.jpg" alt="Алексей и Ирина Чижовы, портрет" loading="lazy"></div>
 </div>
 </div></section>
 
@@ -762,7 +762,7 @@ P["para/index.html"] = ("Тренинг для пар · Настоящие от
 # ================= ВЕДУЩИЕ =================
 P["vedushchie/index.html"] = ("Алексей и Ирина Чижовы · Настоящие отношения",
 "Ведущие школы: коуч ICF и трансформационный тренер, вместе 17 лет.", "vedushchie", f"""
-<div class="hero short"><div class="bg" style="background-image:url('/chizhovy/images/real/real-01.jpg')"></div><div class="veil"></div>
+<div class="hero short"><div class="bg" style="background-image:url('/chizhovy/images/real/portret.jpg');background-position:center 25%"></div><div class="veil"></div>
 <div class="in"><p class="eyebrow">Ведущие</p><h1>Алексей и&nbsp;Ирина Чижовы</h1>
 <p class="lead">Школу отношений ведёт пара, которая 17&nbsp;лет строит свои. С&nbsp;бытом, кризисами и&nbsp;выходами из&nbsp;них, поэтому в&nbsp;зале нет теории с&nbsp;чужих&nbsp;слов.</p></div></div>
 
@@ -778,7 +778,7 @@ P["vedushchie/index.html"] = ("Алексей и Ирина Чижовы · На
 
 <section style="padding-top:0"><div class="wrap">
 <div class="split">
-<div class="ph"><img src="/chizhovy/images/real/real-08.jpg" alt="Финиш забега" loading="lazy"></div>
+<div class="ph"><img src="/chizhovy/images/real/zabeg-selfi.jpg" alt="Алексей и Ирина на набережной после старта" loading="lazy"></div>
 <div>
 <p class="eyebrow">Дисциплина как часть метода</p>
 <h2>Слова, за&nbsp;которыми стоит тело</h2>
