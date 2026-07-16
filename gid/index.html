@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кто пишет сценарий твоей жизни</title>
+<meta name="description" content="Про старую запись, которая повторяет твои дни, ссоры и потолки. И про место, где её власть заканчивается.">
+<style>
+@font-face{font-family:'Playfair Display';src:url('../fonts/playfair-cyrillic.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-weight:400 900;font-display:swap}
+@font-face{font-family:'Playfair Display';src:url('../fonts/playfair-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+2000-206F;font-weight:400 900;font-display:swap}
+@font-face{font-family:'Manrope';src:url('../fonts/manrope-cyrillic.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-weight:200 800;font-display:swap}
+@font-face{font-family:'Manrope';src:url('../fonts/manrope-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+2000-206F;font-weight:200 800;font-display:swap}
+:root{
+  --bg:#FAF7F2; --ink:#322D2B; --ink-soft:#6B615C;
+  --wine:#6E3B4B; --wine-deep:#552C3A; --sage:#7D8C74; --sage-deep:#5C6B54;
+  --linen:#EFE9DF; --sand:#C9A87C; --line:rgba(110,59,75,.14);
+  --night:#17222C; --night-2:#22303C; --copper:#D08A5F; --night-text:#F2EDE4;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html{font-size:17px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Manrope',-apple-system,'Segoe UI',sans-serif;line-height:1.75;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.wrap{max-width:680px;margin:0 auto;padding:0 24px}
+.wrap-wide{max-width:980px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.2;text-wrap:balance;margin:0 0 .5em}
+h2{font-size:clamp(1.7rem,4vw,2.2rem);font-weight:600;margin-top:0}
+h3{font-size:1.25rem;font-weight:600}
+p{margin:0 0 1.15em}
+strong{font-weight:700}
+em{font-style:italic}
+.mark{color:var(--wine)}
+section{padding:72px 0}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--wine);margin:0 0 18px}
+
+/* Шапка */
+.top{padding:20px 0;border-bottom:1px solid var(--line)}
+.top .wrap-wide{display:flex;align-items:center;gap:12px}
+.top svg{flex:0 0 auto}
+.top b{font-family:'Playfair Display',Georgia,serif;font-size:1.05rem}
+.top span{font-size:.78rem;color:var(--ink-soft)}
+
+/* Хиро */
+.hero{position:relative;background:var(--night);color:var(--night-text);padding:0}
+.hero .bg{position:absolute;inset:0;background:url('../images/gid-hero.png') center/cover no-repeat;opacity:.5}
+.hero .veil{position:absolute;inset:0;background:linear-gradient(160deg,rgba(23,34,44,.55) 0%,rgba(23,34,44,.92) 78%)}
+.hero .inner{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:120px 24px 96px}
+.hero .eyebrow{color:var(--copper)}
+.hero h1{font-size:clamp(2.4rem,6.5vw,4rem);font-weight:500;color:#fff}
+.hero .lead{font-size:1.2rem;line-height:1.65;color:rgba(242,237,228,.85);max-width:640px;margin-top:24px}
+.hero .anchor{margin-top:34px;font-size:.9rem;color:var(--copper);letter-spacing:.04em}
+
+/* Полнокровные фото */
+.photo{margin:0}
+.photo img{width:100%;height:auto}
+.photo figcaption{font-size:.78rem;color:var(--ink-soft);padding:10px 24px 0;text-align:center}
+
+/* Сцены боли */
+.scene{background:var(--linen);border:1px solid var(--line);border-radius:8px;padding:24px 26px;margin:0 0 14px}
+.scene .who{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--wine);margin-bottom:8px}
+.scene p{margin:0;color:var(--ink)}
+
+/* Попытки */
+.try{display:grid;grid-template-columns:1fr;gap:12px;margin:26px 0}
+.try .row{background:#fff;border:1px solid var(--line);border-radius:8px;padding:18px 22px}
+.try .row b{display:block;margin-bottom:4px}
+.try .row span{color:var(--ink-soft);font-size:.95rem}
+
+/* Тёмные секции */
+.dark{background:var(--night);color:var(--night-text)}
+.dark h2{color:#fff}
+.dark p{color:rgba(242,237,228,.82)}
+.dark .eyebrow{color:var(--copper)}
+.dark .wrap{position:relative;z-index:1}
+
+/* Круг сценария */
+.loop{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:30px 0 8px}
+.loop .step{background:var(--night-2);border:1px solid rgba(208,138,95,.25);border-radius:8px;padding:18px 16px}
+.loop .step i{display:block;font-style:normal;font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;color:var(--copper);margin-bottom:6px}
+.loop .step b{display:block;font-size:.95rem;margin-bottom:4px;color:#fff}
+.loop .step span{font-size:.82rem;color:rgba(242,237,228,.65);line-height:1.5}
+
+/* Цифры-гвозди */
+.nails{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:30px 0}
+.nail{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px;text-align:left}
+.nail b{display:block;font-family:'Playfair Display',Georgia,serif;font-size:2rem;font-weight:600;color:var(--wine);font-variant-numeric:tabular-nums}
+.nail span{font-size:.82rem;color:var(--ink-soft);line-height:1.5}
+.dark .nail{background:var(--night-2);border-color:rgba(208,138,95,.25)}
+.dark .nail b{color:var(--copper)}
+.dark .nail span{color:rgba(242,237,228,.65)}
+
+/* Роли */
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}
+.role{background:var(--linen);border:1px solid var(--line);border-radius:8px;padding:24px}
+.role .num{font-family:'Playfair Display',Georgia,serif;font-size:1rem;color:var(--sand);letter-spacing:.1em;margin-bottom:8px}
+.role h3{margin-bottom:8px}
+.role p{margin:0;font-size:.93rem;color:var(--ink-soft)}
+
+/* Цитата */
+.pull{border-left:3px solid var(--wine);padding:4px 0 4px 26px;margin:34px 0}
+.pull .q{font-family:'Playfair Display',Georgia,serif;font-size:1.35rem;line-height:1.45;font-weight:500}
+.pull .who{margin-top:10px;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* Контраст */
+.contrast{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+.con{border-radius:8px;padding:26px}
+.con.now{background:var(--linen);border:1px solid var(--line)}
+.con.after{background:var(--sage-deep);color:#F3F1EA}
+.con h3{margin-bottom:14px}
+.con.after h3{color:#fff}
+.con ul{margin:0;padding:0;list-style:none}
+.con li{padding:7px 0 7px 24px;position:relative;font-size:.95rem;line-height:1.55}
+.con.now li{color:var(--ink-soft)}
+.con li::before{content:'';position:absolute;left:0;top:15px;width:12px;height:10px;background:currentColor;opacity:.5;clip-path:ellipse(35% 50% at 50% 50%)}
+
+/* Чек-лист */
+.check{background:#fff;border:1px solid var(--line);border-radius:10px;padding:34px;margin:30px 0}
+.check label{display:flex;gap:14px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line);cursor:pointer;font-size:.98rem;line-height:1.55}
+.check label:last-of-type{border-bottom:none}
+.check input{width:19px;height:19px;margin-top:4px;accent-color:var(--wine);flex:0 0 auto}
+.scale{margin-top:22px;padding-top:18px;border-top:2px solid var(--line);font-size:.92rem;color:var(--ink-soft)}
+.scale b{color:var(--wine)}
+#counter{font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;color:var(--wine);font-weight:600}
+
+/* Продукт и CTA */
+.offer{background:var(--linen);border:1px solid var(--line);border-radius:10px;padding:38px;margin:30px 0}
+.offer h3{font-size:1.5rem}
+.offer ul{margin:16px 0 0;padding:0;list-style:none}
+.offer li{padding:8px 0 8px 28px;position:relative;line-height:1.55}
+.offer li::before{content:'';position:absolute;left:0;top:16px;width:14px;height:11px;background:var(--wine);opacity:.75;clip-path:ellipse(35% 50% at 50% 50%)}
+.btn{display:inline-block;padding:17px 32px;border-radius:5px;font-weight:700;font-size:1rem;text-decoration:none;letter-spacing:.01em}
+.btn-wine{background:var(--wine);color:#FAF5F0}
+.btn-wine:hover{background:var(--wine-deep)}
+.btn-copper{background:var(--copper);color:#1B1410}
+.cta-final{position:relative;overflow:hidden}
+.cta-final .bg{position:absolute;inset:0;background:url('../images/gid-cta.png') center/cover no-repeat;opacity:.35}
+.cta-final .veil{position:absolute;inset:0;background:linear-gradient(rgba(23,34,44,.75),rgba(23,34,44,.94))}
+.cta-final .wrap{position:relative;z-index:1}
+.smallnote{font-size:.8rem;color:rgba(242,237,228,.55);margin-top:16px}
+
+footer{padding:40px 0 60px;font-size:.8rem;color:var(--ink-soft)}
+footer .wrap-wide{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+@media (max-width:760px){
+  section{padding:52px 0}
+  .loop{grid-template-columns:1fr 1fr}
+  .roles,.contrast,.nails{grid-template-columns:1fr}
+  .check{padding:24px 18px}
+  .offer{padding:28px 22px}
+  .hero .inner{padding:88px 24px 72px}
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap-wide">
+    <svg width="40" height="34" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="38" cy="50" r="28" fill="none" stroke="#7D8C74" stroke-width="4"/>
+      <circle cx="62" cy="50" r="28" fill="none" stroke="#6E3B4B" stroke-width="4"/>
+      <path d="M50 24.7 A28 28 0 0 1 50 75.3 A28 28 0 0 1 50 24.7 Z" fill="#6E3B4B" opacity=".9"/>
+    </svg>
+    <div><b>Настоящие отношения</b><br><span>Школа Алексея и&nbsp;Ирины Чижовых</span></div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="bg"></div><div class="veil"></div>
+  <div class="inner">
+    <p class="eyebrow">Гайд для тех, у&nbsp;кого всё повторяется</p>
+    <h1>Кто пишет сценарий твоей жизни</h1>
+    <p class="lead">Разговор ещё впереди, а&nbsp;ты уже знаешь, чем он&nbsp;кончится. Твоя реплика, его ответ, хлопок двери: всё по&nbsp;написанному. Ниже разберём, кто это написал.</p>
+    <p class="anchor">Дочитай до&nbsp;конца. Развидеть это уже не&nbsp;получится.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Сцена первая</p>
+    <h2>Вспомни последнюю ссору, которая пошла по&nbsp;знакомому кругу</h2>
+    <p>Не&nbsp;абстрактно. Конкретную. Кухня или машина, вечер, усталость. Одна фраза цепляет другую, и&nbsp;вот вы&nbsp;уже там&nbsp;же, где были в&nbsp;прошлый раз. И&nbsp;в&nbsp;позапрошлый.</p>
+    <p>Самое странное в&nbsp;этой сцене даже не&nbsp;сам повтор. Причём почувствовал ты&nbsp;его заранее: внутри что-то успело шепнуть «сейчас начнётся». И&nbsp;началось. <strong>Ты смотрел кино, которое уже видел, и&nbsp;не&nbsp;смог выключить.</strong></p>
+    <p>Если бы это касалось только ссор. Присмотрись, тот&nbsp;же повтор идёт по&nbsp;всем главным линиям:</p>
+
+    <div class="scene">
+      <div class="who">Деньги</div>
+      <p>Был лучший месяц за&nbsp;год. Сразу за&nbsp;ним провальный, будто кто-то выровнял счёт. Доход годами крутится вокруг одной цифры, и&nbsp;ты&nbsp;её&nbsp;знаешь с&nbsp;точностью до&nbsp;сотни тысяч.</p>
+    </div>
+    <div class="scene">
+      <div class="who">Близость</div>
+      <p>Люди меняются, город меняется, а&nbsp;финал знакомый: сначала «наконец-то другой человек», потом те&nbsp;же обиды, те&nbsp;же паузы в&nbsp;переписке, тот&nbsp;же холод. Как будто партнёров подбирает кто-то один и&nbsp;тот&nbsp;же.</p>
+    </div>
+    <div class="scene">
+      <div class="who">Ты сам</div>
+      <p>Вечер. Дела закрыты, все получили своё. Сидишь в&nbsp;машине на&nbsp;паркинге, двигатель заглушен, и&nbsp;выходить не&nbsp;хочется. Наверху ждут. А&nbsp;у&nbsp;тебя внутри пусто, и&nbsp;об&nbsp;этом некому сказать.</p>
+    </div>
+    <div class="scene">
+      <div class="who">Утро</div>
+      <p>Будильник. Мысли включились раньше глаз. Кофе, дорога, встречи, вернулся, хотел заняться своим, не&nbsp;занялся. Телефон, злость на&nbsp;себя, сон. Повтор. Неделя. Месяц. Год.</p>
+    </div>
+
+    <p style="margin-top:26px">Узнал хотя&nbsp;бы одну сцену? Тогда у&nbsp;меня к&nbsp;тебе вопрос, с&nbsp;которого всё начинается: <strong>если ты&nbsp;каждый раз решаешь по-новому, почему получается одно и&nbsp;то&nbsp;же?</strong></p>
+  </div>
+</section>
+
+<figure class="photo">
+  <img src="../images/gid-ustalost.png" alt="Мужчина сидит один в машине на ночном паркинге" loading="lazy">
+</figure>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Что ты уже пробовал</p>
+    <h2>Сложа руки ты&nbsp;не&nbsp;сидел. В&nbsp;том-то и&nbsp;дело</h2>
+    <div class="try">
+      <div class="row"><b>Читал книги про отношения и&nbsp;мышление.</b><span>Стало понятнее. Понимание осталось на&nbsp;полке вместе с&nbsp;книгой.</span></div>
+      <div class="row"><b>Ходил к&nbsp;психологу.</b><span>Легче говорить о&nbsp;проблеме. Сама проблема слушала ваши разговоры и&nbsp;не&nbsp;уходила.</span></div>
+      <div class="row"><b>Решал «поговорить по-человечески».</b><span>Три дня держался новый тон. На&nbsp;четвёртый старая интонация вернулась сама, без приглашения.</span></div>
+      <div class="row"><b>Менял: партнёра, работу, город.</b><span>Декорации новые. Через год в&nbsp;них разыгралась та&nbsp;же пьеса.</span></div>
+      <div class="row"><b>Брал себя в&nbsp;руки.</b><span>Хватало до&nbsp;первого настоящего триггера. Дальше руки разжимались сами.</span></div>
+    </div>
+    <p>Напрашивается вывод: «со&nbsp;мной что-то не&nbsp;так». Он&nbsp;неверный. <strong>Бил ты&nbsp;точно, просто мимо этажа.</strong> Всё перечисленное работает со&nbsp;словами и&nbsp;пониманием. А&nbsp;то, что запускает твои повторы, живёт ниже слов. Сейчас покажу.</p>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <p class="eyebrow">Механизм</p>
+    <h2>Старая запись</h2>
+    <p>Когда-то давно, чаще всего в&nbsp;детстве, с&nbsp;тобой случилось событие. Ты&nbsp;пережил его с&nbsp;сильной эмоцией и&nbsp;прямо там, не&nbsp;советуясь с&nbsp;тобой взрослым, принял решение: «злиться опасно», «просить стыдно», «любовь надо заслужить», «богатые плохие», «я&nbsp;сам, на&nbsp;других надежды нет».</p>
+    <p>Решение записалось: в&nbsp;тело, в&nbsp;реакции, в&nbsp;интонацию, с&nbsp;которой ты&nbsp;сегодня отвечаешь жене, партнёру, сыну, инвестору. Психологи зовут это сценарием. Мы&nbsp;в&nbsp;школе зовём проще: <strong>старая запись</strong>.</p>
+
+    <div class="loop">
+      <div class="step"><i>1</i><b>Событие</b><span>Что-то происходит. Слово, взгляд, цифра на&nbsp;счёте.</span></div>
+      <div class="step"><i>2</i><b>Эмоция</b><span>Тело вспыхивает раньше, чем ты&nbsp;успел подумать.</span></div>
+      <div class="step"><i>3</i><b>Старое решение</b><span>Включается то&nbsp;самое, принятое когда-то давно.</span></div>
+      <div class="step"><i>4</i><b>Сценарий</b><span>Ты действуешь по&nbsp;записи. Финал знакомый.</span></div>
+    </div>
+
+    <p style="margin-top:26px">Самое неприятное в&nbsp;этой петле&nbsp;то, что она быстрее тебя. Нейробиолог Джозеф ЛеДу показал: сигнал угрозы доходит до&nbsp;миндалины, аварийного центра мозга, за&nbsp;двенадцать миллисекунд. Осмысленная, думающая кора получает его&nbsp;позже и&nbsp;уже подкрашенным. Дэниел Гоулман назвал это захватом: в&nbsp;момент вспышки разумная часть буквально приглушается.</p>
+    <p><strong>Запись не&nbsp;спорит с&nbsp;тобой. Она просто успевает раньше.</strong> Поэтому «взять себя в&nbsp;руки» не&nbsp;срабатывает: к&nbsp;моменту, когда ты&nbsp;вспомнил про руки, реплика уже сказана.</p>
+
+    <div class="nails">
+      <div class="nail"><b>12&nbsp;мс</b><span>фора миндалины перед думающей корой (ЛеДу)</span></div>
+      <div class="nail"><b>90&nbsp;сек</b><span>живёт химия эмоции, если её&nbsp;не&nbsp;кормить мыслями (Болте Тейлор)</span></div>
+      <div class="nail"><b>1&nbsp;решение</b><span>детское, способно вести взрослую жизнь десятилетиями</span></div>
+    </div>
+  </div>
+</section>
+
+<figure class="photo">
+  <img src="../images/gid-zapis.png" alt="Старый катушечный магнитофон с тёплой подсветкой" loading="lazy">
+  <figcaption>Запись крутится, пока её&nbsp;не&nbsp;увидят. Потом у&nbsp;неё&nbsp;заканчивается власть.</figcaption>
+</figure>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Найди себя</p>
+    <h2>Четыре способа жить по&nbsp;записи</h2>
+    <p>Запись у&nbsp;каждого своя, но&nbsp;крутится она по&nbsp;похожим дорожкам. Вот четыре самых частых на&nbsp;наших группах. Читай и&nbsp;отмечай, где кольнуло.</p>
+    <div class="roles">
+      <div class="role"><div class="num">Роль I</div><h3>Тот, кто тянет всё сам</h3><p>Просить запрещено записью. Помощь равна слабости. Вокруг люди, а&nbsp;опереться не&nbsp;на&nbsp;кого, потому что ты&nbsp;сам никого не&nbsp;подпустил. Усталость копится годами и&nbsp;зовётся «нормальным ритмом».</p></div>
+      <div class="role"><div class="num">Роль II</div><h3>Та, что живёт в&nbsp;ожидании</h3><p>Всем всё дала: дому, детям, его&nbsp;делу. Своё «потом» откладывается двадцать лет. Внутри тихий вопрос «а&nbsp;когда я?», и&nbsp;за&nbsp;него сразу стыдно.</p></div>
+      <div class="role"><div class="num">Роль III</div><h3>Партнёры-соседи</h3><p>Быт отлажен, календарь общий, разговоры про логистику. Не&nbsp;ссоритесь, потому что незачем. Близость ушла так тихо, что никто не&nbsp;заметил дату.</p></div>
+      <div class="role"><div class="num">Роль IV</div><h3>Успешный снаружи</h3><p>Бизнес, статус, спортзал, всё по&nbsp;списку. Внутри пусто и&nbsp;тревожно, и&nbsp;чем громче успех, тем страшнее, что «раскроют». Об&nbsp;этом не&nbsp;знает никто. Иногда даже ты.</p></div>
+    </div>
+    <p>Похоже на&nbsp;характер, правда? Только вот <strong>характер приходится терпеть. Запись переписывается.</strong></p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">Цена</p>
+    <h2>Сколько стоит каждый следующий круг</h2>
+    <p>У повтора есть свойство: он&nbsp;дорожает. Первый круг стоит испорченного вечера. Десятый стоит близости: рядом с&nbsp;тобой живут, но&nbsp;уже не&nbsp;открываются. Сотый начинает забирать здоровье, потому что тело годами носит то, что нельзя положить на&nbsp;пол.</p>
+    <p>Дети выучивают твою запись наизусть, просто глядя на&nbsp;тебя, и&nbsp;уносят её&nbsp;в&nbsp;свои будущие семьи. Дело буксует на&nbsp;том&nbsp;же обороте: расти дальше запись не&nbsp;разрешает, у&nbsp;неё&nbsp;другая инструкция.</p>
+    <p>И&nbsp;здесь важно сказать главное. <strong>Ты&nbsp;не&nbsp;ленивый, не&nbsp;слабый и&nbsp;не&nbsp;сломанный.</strong> Двадцать, тридцать, сорок лет ты&nbsp;честно исполняешь решение, принятое ребёнком в&nbsp;плохой день. Ребёнок выбрать не&nbsp;мог. Взрослый может.</p>
+    <div class="pull">
+      <div class="q">«Труднее всего было принять точку&nbsp;А. Признать, где я&nbsp;на&nbsp;самом деле. Дальше всё началось.»</div>
+      <div class="who">Участник тренинга, предприниматель</div>
+    </div>
+  </div>
+</section>
+
+<figure class="photo">
+  <img src="../images/gid-tochka-a.png" alt="Женщина у окна на рассвете смотрит на город" loading="lazy">
+</figure>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Почему слова не&nbsp;достают</p>
+    <h2>Запись нельзя переубедить. Её&nbsp;можно только переписать</h2>
+    <p>Теперь понятно, почему книги и&nbsp;разговоры не&nbsp;сработали: они стучались в&nbsp;думающий этаж. Запись хранится этажом ниже, в&nbsp;эмоции и&nbsp;теле. Договариваться с&nbsp;ней словами&nbsp;то&nbsp;же самое, что уговаривать плёнку звучать иначе. Плёнке всё равно, она просто играет, что записано.</p>
+    <p>Перезаписывают её&nbsp;там&nbsp;же, где записали: в&nbsp;живой сцене, с&nbsp;живой эмоцией. Для этого сто лет назад психиатр Якоб Морено придумал психодраму: человек не&nbsp;рассказывает о&nbsp;ситуации, а&nbsp;возвращается в&nbsp;неё, проживает заново, видит с&nbsp;позиций других участников и&nbsp;прямо внутри сцены принимает другое решение. Морено называл это спонтанностью: способностью дать новый ответ на&nbsp;старую ситуацию.</p>
+    <p>Такой опыт невозможно получить из&nbsp;текста. Его можно только прожить. Текст способен на&nbsp;меньшее, но&nbsp;важное: <strong>показать тебе твою запись.</strong> Что он, надеюсь, уже сделал.</p>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <p class="eyebrow">Проверь себя</p>
+    <h2>Десять признаков, что запись сейчас у&nbsp;пульта</h2>
+    <div class="check" style="background:var(--night-2);border-color:rgba(208,138,95,.25)">
+      <label><input type="checkbox"><span>Ссоры с&nbsp;близким человеком идут по&nbsp;одному кругу, реплики почти дословные</span></label>
+      <label><input type="checkbox"><span>Доход годами держится у&nbsp;одной цифры, рывки вверх быстро «выравниваются»</span></label>
+      <label><input type="checkbox"><span>С&nbsp;разными людьми повторяется один финал отношений</span></label>
+      <label><input type="checkbox"><span>Просить о&nbsp;помощи тяжелее, чем сделать самому, даже когда сил нет</span></label>
+      <label><input type="checkbox"><span>После вспышки думаешь «ну&nbsp;вот, опять я», и&nbsp;стыдно</span></label>
+      <label><input type="checkbox"><span>Убегаешь от&nbsp;тяжёлых разговоров в&nbsp;дела, спорт, телефон, рюмку</span></label>
+      <label><input type="checkbox"><span>Успеху внутри не&nbsp;веришь: «повезло», «сейчас раскроют»</span></label>
+      <label><input type="checkbox"><span>Про себя всё понимаешь, поведение при этом стоит на&nbsp;месте</span></label>
+      <label><input type="checkbox"><span>Рядом с&nbsp;родителями за&nbsp;пять минут снова становишься ребёнком</span></label>
+      <label><input type="checkbox"><span>Вечером в&nbsp;машине или в&nbsp;ванной сидишь дольше, чем нужно. Там тихо</span></label>
+      <div class="scale">
+        <span id="counter">0</span> из&nbsp;10
+        <p style="margin:10px 0 0">До&nbsp;двух: запись есть, но&nbsp;пульт чаще у&nbsp;тебя. <b>Три и&nbsp;больше:</b> запись водит тебя по&nbsp;кругу регулярно. <b>От&nbsp;шести:</b> ты&nbsp;читаешь этот текст очень вовремя.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Что дальше</p>
+    <h2>Как это выглядит, когда запись переписана</h2>
+    <div class="contrast">
+      <div class="con now">
+        <h3>Сейчас</h3>
+        <ul>
+          <li>Реакция срабатывает раньше тебя</li>
+          <li>Близкие получают интонацию, которую ты&nbsp;не&nbsp;выбирал</li>
+          <li>Деньги упираются в&nbsp;невидимый потолок</li>
+          <li>Усталость от&nbsp;роли, приросшей к&nbsp;коже</li>
+          <li>«Всё понимаю» и&nbsp;ничего не&nbsp;меняется</li>
+        </ul>
+      </div>
+      <div class="con after">
+        <h3>После перезаписи</h3>
+        <ul>
+          <li>Между событием и&nbsp;ответом появляется пауза, и&nbsp;в&nbsp;ней ты&nbsp;выбираешь</li>
+          <li>Трудные разговоры заканчиваются ближе, чем начинались</li>
+          <li>Решения в&nbsp;деле становятся холоднее и&nbsp;точнее</li>
+          <li>Просить, отдыхать и&nbsp;опираться на&nbsp;людей разрешено</li>
+          <li>Своя жизнь на&nbsp;своей стороне стола</li>
+        </ul>
+      </div>
+    </div>
+    <p>Один из&nbsp;наших учеников сказал об&nbsp;этом моменте так: «появилось ощущение, что вижу себя на&nbsp;всей шахматной доске, а&nbsp;не&nbsp;в&nbsp;одной клетке». Мы&nbsp;добавим прозой: жизнь перестаёт случаться с&nbsp;тобой и&nbsp;начинает идти от&nbsp;тебя.</p>
+  </div>
+</section>
+
+<figure class="photo">
+  <img src="../images/gid-posle.png" alt="Пара смеётся за завтраком у большого окна" loading="lazy">
+</figure>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Где это делают</p>
+    <h2>Тренинг «Настоящие отношения»</h2>
+    <p>Мы&nbsp;16&nbsp;лет ведём людей через перезапись сценариев. Очно, в&nbsp;малых группах от&nbsp;10 до&nbsp;20&nbsp;человек, глубоко. Никаких лекций: работа в&nbsp;живых процессах, включая психодраму, с&nbsp;сопровождением после.</p>
+    <div class="offer">
+      <h3>Три модуля, один путь</h3>
+      <ul>
+        <li><strong>Возвращение к&nbsp;себе.</strong> Два с&nbsp;половиной дня: увидеть свою запись, паттерны и&nbsp;то, откуда они родом.</li>
+        <li><strong>Внутренняя свобода.</strong> Пять дней: страх, вина, обида, чужие ожидания. Перезапись глубинных решений.</li>
+        <li><strong>Создатель реальности.</strong> Три месяца практики за&nbsp;пределами зала: новые действия, команда, результаты, которые остаются.</li>
+      </ul>
+    </div>
+    <p>Начало всегда одно: <strong>ознакомительная сессия с&nbsp;Алексеем.</strong> Час разговора о&nbsp;твоей ситуации, честный ответ, чем школа может помочь и&nbsp;подходит&nbsp;ли она тебе вообще. Без обязательств идти дальше.</p>
+  </div>
+</section>
+
+<section class="dark cta-final">
+  <div class="bg"></div><div class="veil"></div>
+  <div class="wrap" style="text-align:left">
+    <p class="eyebrow">Последняя страница</p>
+    <h2>Запись не&nbsp;берёт выходных</h2>
+    <p>Каждый день, прожитый по&nbsp;ней, делает колею глубже: нейронные дорожки укрепляются от&nbsp;повторения. Поэтому спрашивать «нужно&nbsp;ли с&nbsp;этим что-то делать» уже поздно. Живой вопрос другой: <strong>сколько ещё кругов ты&nbsp;готов оплатить.</strong></p>
+    <p style="margin-top:28px"><a class="btn btn-copper" href="https://t.me/+LVptSH6Mt4hhYmFi">Записаться на&nbsp;ознакомительную сессию</a></p>
+    <p class="smallnote">Напиши в&nbsp;наш Telegram слово «сессия». Ответим лично, без ботов и&nbsp;рассылок.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap-wide">
+    <div>«Настоящие отношения» · Алексей и&nbsp;Ирина Чижовы</div>
+    <div>Прототип страницы. Результаты участников индивидуальны.</div>
+  </div>
+</footer>
+
+<script>
+const boxes = document.querySelectorAll('.check input');
+const counter = document.getElementById('counter');
+boxes.forEach(b => b.addEventListener('change', () => {
+  counter.textContent = [...boxes].filter(x => x.checked).length;
+}));
+</script>
+</body>
+</html>
