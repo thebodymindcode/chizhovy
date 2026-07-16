@@ -23,7 +23,8 @@
 }
 *{box-sizing:border-box}
 html{font-size:17.5px;scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:'Lora',Georgia,serif;line-height:1.78;-webkit-font-smoothing:antialiased}
+body{margin:0;background:#E3DCCE;color:var(--ink);font-family:'Lora',Georgia,serif;line-height:1.78;-webkit-font-smoothing:antialiased}
+.sheet{max-width:880px;margin:0 auto;background:var(--paper);border-left:1px solid rgba(46,42,39,.28);border-right:1px solid rgba(46,42,39,.28);box-shadow:0 0 80px rgba(46,42,39,.22);min-height:100vh;padding-bottom:1px}
 img{max-width:100%;display:block}
 
 /* Одна газетная колонка, по краям чистые поля */
@@ -43,6 +44,16 @@ h1{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(
 .standfirst{font-style:italic;font-size:1.2rem;line-height:1.62;color:var(--soft);max-width:540px;margin:26px auto 0;text-wrap:pretty}
 .byline{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin:30px 0 0;display:flex;align-items:center;justify-content:center;gap:16px}
 .byline::before,.byline::after{content:'';flex:0 0 44px;height:1px;background:var(--rule)}
+
+/* Содержание номера */
+.toc{border:1px solid var(--rule);background:#fff;padding:22px 28px 18px;margin:40px 0 6px}
+.toc-t{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--wine);margin-bottom:10px;text-align:center}
+.toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:34px}
+.toc li{padding:7px 0;border-bottom:1px solid var(--rule-soft);break-inside:avoid}
+.toc a{color:var(--ink);text-decoration:none;font-size:.92rem;display:flex;gap:10px;align-items:baseline}
+.toc a:hover{color:var(--wine)}
+.toc i{font-style:normal;font-family:'Playfair Display',Georgia,serif;color:var(--sand);flex:0 0 22px;text-align:right}
+.deck{font-style:italic;color:var(--soft);margin:12px auto 0;max-width:470px;font-size:.98rem;line-height:1.55}
 
 /* Части */
 .part{padding:56px 0 0;text-align:center}
@@ -150,6 +161,7 @@ footer{padding:34px 0 64px;text-align:center;font-family:'Manrope',sans-serif;fo
 footer .dblrule{border-top:1px solid var(--ink);border-bottom:3px solid var(--ink);height:3px;margin-bottom:22px;opacity:.8}
 
 @media (max-width:640px){
+  .toc ol{columns:1}
   html{font-size:16.5px}
   .loop{grid-template-columns:1fr 1fr}
   .loop .step:nth-child(3){border-left:none}
@@ -166,6 +178,7 @@ footer .dblrule{border-top:1px solid var(--ink);border-bottom:3px solid var(--in
 </style>
 </head>
 <body>
+<div class="sheet">
 
 <div class="col masthead">
   <svg class="lens" width="44" height="37" viewBox="0 0 100 100" aria-hidden="true">
@@ -174,7 +187,7 @@ footer .dblrule{border-top:1px solid var(--ink);border-bottom:3px solid var(--in
     <path d="M50 24.7 A28 28 0 0 1 50 75.3 A28 28 0 0 1 50 24.7 Z" fill="#6E3B4B" opacity=".9"/>
   </svg>
   <div class="brand">Настоящие отношения</div>
-  <div class="issue"><span>Гайд школы</span><span>Алексей и&nbsp;Ирина Чижовы</span></div>
+  <div class="issue"><span>Издание школы</span><span>Выпуск I</span><span>Алексей и&nbsp;Ирина Чижовы</span></div>
   <div class="dbl"></div>
 </div>
 
@@ -192,9 +205,25 @@ footer .dblrule{border-top:1px solid var(--ink);border-bottom:3px solid var(--in
   </figure>
 </div>
 
-<div class="col part">
+<div class="col">
+  <nav class="toc">
+    <div class="toc-t">В этом выпуске</div>
+    <ol>
+      <li><a href="#p1"><i>I</i> Ссора, которую ты знаешь наизусть</a></li>
+      <li><a href="#p2"><i>II</i> Пять попыток, которые били мимо</a></li>
+      <li><a href="#p3"><i>III</i> Старая запись: механика повтора</a></li>
+      <li><a href="#p4"><i>IV</i> Четыре способа жить по записи</a></li>
+      <li><a href="#p5"><i>V</i> Цена каждого следующего круга</a></li>
+      <li><a href="#p6"><i>VI</i> Перезапись: почему слова не достают</a></li>
+      <li><a href="#p7"><i>VII</i> Проверь себя: десять признаков</a></li>
+    </ol>
+  </nav>
+</div>
+
+<div class="col part" id="p1">
   <div class="pn">Часть I</div>
   <h2>Вспомни последнюю ссору, которая пошла по&nbsp;знакомому кругу</h2>
+  <p class="deck">Четыре сцены, в&nbsp;которых ты, скорее всего, уже жил</p>
 </div>
 <article class="col">
   <p class="dropcap">Не&nbsp;абстрактно. Конкретную. Кухня или машина, вечер, усталость. Одна фраза цепляет другую, и&nbsp;вот вы&nbsp;уже там&nbsp;же, где были в&nbsp;прошлый раз. И&nbsp;в&nbsp;позапрошлый.</p>
@@ -228,9 +257,10 @@ footer .dblrule{border-top:1px solid var(--ink);border-bottom:3px solid var(--in
   </figure>
 </div>
 
-<div class="col part">
+<div class="col part" id="p2">
   <div class="pn">Часть II</div>
   <h2>Сложа руки ты&nbsp;не&nbsp;сидел. В&nbsp;том-то и&nbsp;дело</h2>
+  <p class="deck">Инвентаризация: пять честных попыток и&nbsp;причина, по&nbsp;которой они буксовали</p>
 </div>
 <article class="col">
   <div class="item">
@@ -256,9 +286,10 @@ footer .dblrule{border-top:1px solid var(--ink);border-bottom:3px solid var(--in
   <p style="margin-top:26px">Напрашивается вывод: «со&nbsp;мной что-то не&nbsp;так». Он&nbsp;неверный. <strong>Бил ты&nbsp;точно, просто мимо этажа.</strong> Всё перечисленное работает со&nbsp;словами и&nbsp;пониманием. А&nbsp;то, что запускает твои повторы, живёт ниже слов. Сейчас покажу.</p>
 </article>
 
-<div class="col part">
+<div class="col part" id="p3">
   <div class="pn">Часть III</div>
   <h2>Старая запись</h2>
+  <p class="deck">Механика повтора: от&nbsp;события до&nbsp;знакомого финала за&nbsp;двенадцать миллисекунд</p>
 </div>
 <article class="col">
   <p>Когда-то давно, чаще всего в&nbsp;детстве, с&nbsp;тобой случилось событие. Ты&nbsp;пережил его с&nbsp;сильной эмоцией и&nbsp;прямо там, не&nbsp;советуясь с&nbsp;тобой взрослым, принял решение: «злиться опасно», «просить стыдно», «любовь надо заслужить», «богатые плохие», «я&nbsp;сам, на&nbsp;других надежды нет».</p>
@@ -295,9 +326,10 @@ footer .dblrule{border-top:1px solid var(--ink);border-bottom:3px solid var(--in
   </figure>
 </div>
 
-<div class="col part">
+<div class="col part" id="p4">
   <div class="pn">Часть IV</div>
   <h2>Четыре способа жить по&nbsp;записи</h2>
+  <p class="deck">Найди свою дорожку: четыре самых частых записи наших групп</p>
 </div>
 <article class="col">
   <p>Запись у&nbsp;каждого своя, но&nbsp;крутится она по&nbsp;похожим дорожкам. Вот четыре самых частых на&nbsp;наших группах. Читай и&nbsp;отмечай, где кольнуло.</p>
@@ -310,9 +342,10 @@ footer .dblrule{border-top:1px solid var(--ink);border-bottom:3px solid var(--in
   <p>Похоже на&nbsp;характер, правда? Только вот <strong>характер приходится терпеть. Запись переписывается.</strong></p>
 </article>
 
-<div class="col part">
+<div class="col part" id="p5">
   <div class="pn">Часть V</div>
   <h2>Сколько стоит каждый следующий круг</h2>
+  <p class="deck">Тарифы повторов: чем платят близость, дело и&nbsp;тело</p>
 </div>
 <article class="col">
   <p>У&nbsp;повтора есть свойство: он&nbsp;дорожает. Первый круг стоит испорченного вечера. Десятый стоит близости: рядом с&nbsp;тобой живут, но&nbsp;уже не&nbsp;открываются. Сотый начинает забирать здоровье, потому что тело годами носит то, что нельзя положить на&nbsp;пол.</p>
@@ -331,9 +364,10 @@ footer .dblrule{border-top:1px solid var(--ink);border-bottom:3px solid var(--in
   </figure>
 </div>
 
-<div class="col part">
+<div class="col part" id="p6">
   <div class="pn">Часть VI</div>
   <h2>Запись нельзя переубедить. Её&nbsp;можно только переписать</h2>
+  <p class="deck">Почему слова не&nbsp;достают и&nbsp;что достаёт: психодрама</p>
 </div>
 <article class="col">
   <p>Теперь понятно, почему книги и&nbsp;разговоры не&nbsp;сработали: они стучались в&nbsp;думающий этаж. Запись хранится этажом ниже, в&nbsp;эмоции и&nbsp;теле. Договариваться с&nbsp;ней словами&nbsp;то&nbsp;же самое, что уговаривать плёнку звучать иначе. Плёнке всё равно, она просто играет, что записано.</p>
@@ -348,9 +382,10 @@ footer .dblrule{border-top:1px solid var(--ink);border-bottom:3px solid var(--in
   <p>Такой опыт невозможно получить из&nbsp;текста. Его можно только прожить. Текст способен на&nbsp;меньшее, но&nbsp;важное: <strong>показать тебе твою запись.</strong> Что он, надеюсь, уже сделал.</p>
 </article>
 
-<div class="col part">
+<div class="col part" id="p7">
   <div class="pn">Часть VII</div>
   <h2>Десять признаков, что запись сейчас у&nbsp;пульта</h2>
+  <p class="deck">Самодиагностика и&nbsp;две колонки жизни: до&nbsp;и&nbsp;после</p>
 </div>
 <article class="col">
   <div class="check">
@@ -422,8 +457,8 @@ footer .dblrule{border-top:1px solid var(--ink);border-bottom:3px solid var(--in
     <div class="vin"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 24.7 A28 28 0 0 1 50 75.3 A28 28 0 0 1 50 24.7 Z" fill="#6E3B4B"/></svg></div>
     <h2>Запись не&nbsp;берёт выходных</h2>
     <p>Каждый день, прожитый по&nbsp;ней, делает колею глубже: нейронные дорожки укрепляются от&nbsp;повторения. Поэтому спрашивать «нужно&nbsp;ли с&nbsp;этим что-то делать» уже поздно. Живой вопрос другой: <strong>сколько ещё кругов ты&nbsp;готов оплатить.</strong></p>
-    <p style="margin-top:24px"><a class="btn" href="https://t.me/+LVptSH6Mt4hhYmFi">Записаться на&nbsp;сессию</a></p>
-    <p class="smallnote">Напиши в&nbsp;наш Telegram слово «сессия». Ответим лично, без ботов и&nbsp;рассылок.</p>
+    <p style="margin-top:24px"><a class="btn" href="/chizhovy/sessiya/">Записаться на&nbsp;сессию</a></p>
+    <p class="smallnote">На&nbsp;странице сессии всё по&nbsp;шагам: как проходит, сколько стоит, как записаться.</p>
   </div>
 </article>
 
@@ -433,6 +468,7 @@ footer .dblrule{border-top:1px solid var(--ink);border-bottom:3px solid var(--in
     «Настоящие отношения» · Алексей и&nbsp;Ирина Чижовы · Прототип страницы. Результаты участников индивидуальны.
   </div>
 </footer>
+</div>
 
 <script>
 const boxes = document.querySelectorAll('.check input');
